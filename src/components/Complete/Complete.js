@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import TodoItem from "../TodoItem/TodoItem";
 import MyContext from "../../context/MyContext";
+import CompleteItem from "../CompleteItem/CompleteItem";
 
 const Complete = () => {
   const { todo, formik, todoActive, todoComplete, setTodo } =
     useContext(MyContext);
   const { handleSubmit, handleChange, values } = formik;
-  const filter = todo.filter((todoItem) => {
+  const filter = todoComplete.filter((todoItem) => {
     return todoItem.check === true;
   });
   console.log(filter);
@@ -17,7 +18,7 @@ const Complete = () => {
           ? ""
           : filter.map((todoItem) => {
               return (
-                <TodoItem
+                <CompleteItem
                   text={todoItem.text}
                   type={todoItem.type}
                   checkTodo={todoItem.check}

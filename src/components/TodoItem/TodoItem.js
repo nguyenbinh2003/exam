@@ -11,16 +11,15 @@ const TodoItem = ({ type, text, todoItem, }) => {
     todo,
     onClickItem
   } = useContext(MyContext);
-  console.log(onClickItem);
   const [check, setCheck] = useState(false);
   const onClick = () => {
     if (check === false) {
       setCheck(true);
-      setTodo([...todo, { ...todoItem, check: true }]);
-      console.log(todoActive);
+      setTodoComplete([...todo, { ...todoItem, check: true }]);
+      console.log([...todo, { ...todoItem, check: true }]);
       console.log(todoItem);
     } else {
-      setTodo([...todo, { ...todoItem, check: false }]);
+      setTodoActive([...todo, { ...todoItem, check: false }]);
       setCheck(false);
       console.log(todoActive);
       console.log(todoItem);
